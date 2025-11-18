@@ -1,9 +1,9 @@
 ---
-title: "E-Commerce Redesign"
+title: "Design System Migration"
 description: "A complete redesign of an e-commerce platform to improve user experience and conversion rates."
 date: "2024-01-15"
-thumbnail: "/images/case.svg"
-tags: [ "Web Design", "E-Commerce"]
+thumbnail: "/images/case3.png"
+tags: [ "UI Design", "Product Strategy"]
 ---
 
 ## Overview

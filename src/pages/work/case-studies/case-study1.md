@@ -1,9 +1,9 @@
 ---
-title: "E-Commerce Redesign"
+title: "Digital Buy Platform"
 description: "A complete redesign of an e-commerce platform to improve user experience and conversion rates."
 date: "2024-01-15"
-thumbnail: "/images/case.svg"
-tags: [ "Web Design", "E-Commerce"]
+thumbnail: "/images/case1.png"
+tags: [ "UI Design"]
 ---
 
 ## Overview

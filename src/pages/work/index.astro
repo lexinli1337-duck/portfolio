@@ -29,7 +29,6 @@ function getSlug(filePath: string) {
     <div class="container">
       <div class="textContainer animate-in">
         <h1>Work</h1>
-       
       </div>
       
       <div class="case-studies-grid animate-in">
@@ -64,6 +63,7 @@ function getSlug(filePath: string) {
   .textContainer {
     display: flex;
     flex-direction: column;
+    height: fit-content;
   }
   
   h1 {
@@ -86,6 +86,7 @@ function getSlug(filePath: string) {
   @media (max-width: 768px) {
     .container {
       flex-direction: column;
+      gap: 3rem;
     }
     
 </style>
