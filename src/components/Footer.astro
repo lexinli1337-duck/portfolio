@@ -1,0 +1,41 @@
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; {new Date().getFullYear()} Lexin Li</p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/lexin-li-a25767187/" target="_blank">LinkedIn</a>
+      <a href="lexin.li1337@email.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    display: flex;
+    margin-top: 2rem;
+    padding: 0 2rem;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: var(--color-text, #6c757d);
+
+  }
+
+  .site-footer .container {
+    display: flex;
+    max-width: 100%;
+    width: 1600px;
+    flex-direction: row;
+    justify-content: right;
+    gap: 0.5rem;
+    font-style: italic;
+  }
+
+  .site-footer .social-links a {
+    margin: 0 0.5rem;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .site-footer .social-links a:hover {
+    text-decoration: underline;
+  }
+</style>

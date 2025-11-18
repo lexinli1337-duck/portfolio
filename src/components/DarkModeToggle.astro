@@ -1,0 +1,69 @@
+<button id="theme-toggle" aria-label="Toggle dark mode">
+  <img src="/images/moon-icon.png" alt="Light mode" class="sun-icon" />
+  <img src="/images/sun-icon.png" alt="Dark mode" class="moon-icon" />
+</button>
+
+<script>
+  const button = document.getElementById("theme-toggle");
+  const html = document.documentElement;
+
+  button?.addEventListener("click", () => {
+    const currentTheme = html.getAttribute("data-theme");
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+    html.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    updateIcon();
+  });
+
+  // Update icon visibility
+  function updateIcon() {
+    const theme = html.getAttribute("data-theme");
+    const sunIcon = button?.querySelector(".sun-icon");
+    const moonIcon = button?.querySelector(".moon-icon");
+
+    if (theme === "dark") {
+      sunIcon?.classList.add("hidden");
+      moonIcon?.classList.remove("hidden");
+    } else {
+      sunIcon?.classList.remove("hidden");
+      moonIcon?.classList.add("hidden");
+    }
+  }
+
+  updateIcon();
+
+  // Also run when navigating between pages (for Astro view transitions)
+  document.addEventListener("astro:page-load", updateIcon);
+</script>
+
+<style>
+  #theme-toggle {
+    background: none;
+    border: 2px solid var(--color-border);
+    border-radius: 100px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 4px 4px 0px var(--color-primary);
+  }
+
+  #theme-toggle:hover {
+    background: var(--color-bg-alt);
+    translate: 2px 2px;
+    box-shadow: none;
+  }
+
+  .sun-icon,
+  .moon-icon {
+    width: 52px;
+    height: 52px;
+    display: block;
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>

@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About - Your Name" description="Learn more about me">
+  <section class="about">
+    <div class="container">
+      <h1>About Me</h1>
+      
+      <div class="content">
+        <div class="bio">
+          <h2>A bit about myself...</h2>
+          <p>
+            I developed an interest in digital product design after taking an elective class on UI design 2 years into my software development degree. 
+            After graduation, I was lucky enough to land a role doing web design + development, which turned what was originally an interest into a passion 
+            for building visually pleasing and intuitive digital experiences.
+          </p>
+          <p>
+            My approach combines clean design with thoughtful functionality, always keeping 
+            the user at the center of every decision.
+          </p>
+        </div>
+        
+        <div class="skills">
+          <h2>Skills</h2>
+          <ul>
+            <li>UI/UX Design</li>
+            <li>Web Development</li>
+            <li>User Research</li>
+            <li>Prototyping</li>
+          </ul>
+        </div>
+        
+        <div class="contact">
+          <h2>Get In Touch</h2>
+          <p>
+            I'm always interested in hearing about new projects and opportunities.
+          </p>
+          <a href="lexin.li1337@email.com" class="btn">Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about {
+    padding: 4rem 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    color: var(--color-text); 
+  }
+  
+  .skills ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .skills li {
+    background: #f0f0f0;
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+  }
+  
+  .btn {
+    background: var(--color-primary);
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    box-shadow: 8px 8px 0px var(--color-secondary);
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(2px) translateX(2px);
+    text-decoration: none;
+    box-shadow: none
+  }
+  
+</style>

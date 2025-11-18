@@ -1,0 +1,89 @@
+---
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "My Portfolio" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content={description}>
+  <title>{title}</title>
+
+  <!-- THIS SCRIPT MUST BE HERE - before styles load -->
+  <script is:inline>
+    // Run immediately to prevent flash
+    (function() {
+      const theme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <style is:global>
+    
+    :root {
+      --color-bg: #EDEDED;
+      --color-inverse-bg: #192938;
+      --color-text: #505050;
+      --color-text-light: #505050;
+      --color-primary: #FF7D5C;
+      --color-secondary: #FFB973;
+      --color-bg2: #D7EEF8;
+      --color-hover-bg: #e9fdfd;
+      --color-tag:#505050;
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #192938;
+      --color-inverse-bg: #EDEDED;
+      --color-text: #FFFFFF;
+      --color-text-light: #FFFFFF;
+      --color-primary: #51a5ff;
+      --color-secondary: #73C7FF;
+      --color-bg2: #0F1D2B;
+      --color-hover-bg: #1f3852;
+      --color-tag:#2c2c2c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: "Kantumruy Pro", sans-serif;
+      line-height: 1.6;
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      overflow-y: scroll; /* Show scrollbars */
+    }
+    
+    a {
+      color: var(--color-p);
+      text-decoration: none;
+    }
+    
+    
+  </style>
+</head>
+<body>
+  <Header />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>

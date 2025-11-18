@@ -1,0 +1,175 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Home - Your Name" description="Welcome to my portfolio">
+  <section class="hero">
+    <div class="container">
+      <div class="left">
+        <div class="text-content">
+          <h1>Lexin Li</h1>
+          <p class="subtitle">Product + UI Design</p>
+          <p class="intro">
+            I’m a product designer who has delivered enterprise and B2B solutions by simplifying complex business requirements into elegant, high-impact experiences
+          </p>
+        </div>
+        <div class="cta-buttons">
+          <a href="/work" class="btn btn-primary">View My Work</a>
+        </div>
+      </div>  
+
+      <div class="right">
+        <img src="/images/dayduck.svg" alt="Light mode" class="duck" id="duck" />
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  function updateHeroImage() {
+    const theme = document.documentElement.getAttribute('data-theme');
+    const image = document.getElementById('duck');
+    const isMobile = window.innerWidth <= 768;
+    
+    if (image && image instanceof HTMLImageElement) {
+      if (theme === 'dark') {
+        image.src = isMobile 
+          ? '/images/nightduck2.svg' 
+          : '/images/nightduck.svg';
+      } else {
+        image.src = isMobile 
+          ? '/images/dayduck2.svg' 
+          : '/images/dayduck.svg';
+      }
+    } 
+  }
+  
+  // Run on page load
+  updateHeroImage();
+  
+  // Listen for theme changes
+  const observer = new MutationObserver(updateHeroImage);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme']
+  });
+
+  // Listen for window resize (with debounce for performance)
+   let resizeTimer: ReturnType<typeof setTimeout>;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(updateHeroImage, 250);
+  });
+</script>
+
+<style>
+  .hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container {
+    max-width: 1600px;
+    display: flex;
+    margin: 0 auto;
+    padding: 0 2rem;
+    gap: 6rem;
+  }
+
+  .left{
+    display: flex;
+    width: 100%;
+    max-width: 700px;
+    max-height: 550px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+  }
+
+  .text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .right img {
+    display: flex;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  h1 {
+    font-size: clamp(4rem, 5vw, 6rem);
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+    text-shadow: 3px 3px 0px var(--color-secondary);
+  }
+
+  
+  .subtitle {
+    font-size: clamp(0.5rem, 3.5vw, 1.2rem);
+    color: var(--color-tag);
+    margin-bottom: 2rem;
+    background-color: var(--color-secondary);
+    width: max-content;
+    padding: 0.3rem 0.75rem;
+  }
+  
+  .intro {
+    font-size: clamp(0.5rem, 3.5vw, 1.2rem);
+    margin-bottom: 3rem;
+    color: var(--color-text);
+    text-align: left;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .btn {
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    box-shadow: 8px 8px 0px var(--color-secondary);
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+    transform: translateY(2px) translateX(2px);
+    text-decoration: none;
+    box-shadow: none
+  }
+  
+  .btn-primary {
+    background: var(--color-primary);
+    font-size: x-large;
+    color: white;
+  }
+  
+  .btn-secondary {
+    background: #f0f0f0;
+    color: #333;
+  }
+
+   @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+    }
+
+  }
+</style>

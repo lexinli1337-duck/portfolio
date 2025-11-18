@@ -1,0 +1,41 @@
+---
+import CaseStudyLayout from "../../layouts/CaseStudyLayout.astro";
+import type { MarkdownInstance } from "astro";
+
+interface Frontmatter {
+  title: string;
+  description: string;
+  date: string;
+  tags?: string[];
+  thumbnail?: string;
+}
+
+export async function getStaticPaths() {
+  const caseStudies: MarkdownInstance<Frontmatter>[] = await Astro.glob(
+    "./case-studies/*.md"
+  );
+
+  return caseStudies.map((study) => {
+    const parts = study.file.split("/");
+    const filename = parts[parts.length - 1];
+    const slug = filename.replace(".md", "");
+
+    return {
+      params: { slug },
+      props: { study },
+    };
+  });
+}
+
+const { study } = Astro.props;
+const { Content, frontmatter } = study;
+---
+
+<CaseStudyLayout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  date={frontmatter.date}
+  tags={frontmatter.tags}
+>
+  <Content />
+</CaseStudyLayout>

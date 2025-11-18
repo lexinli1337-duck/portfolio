@@ -1,0 +1,70 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  date: string;
+  tags?: string[];
+}
+
+const { title, description, date, tags = [] } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="case-study">
+    <header class="case-study-header">
+      <h1>{title}</h1>
+      <p class="meta">
+        <time datetime={date}>{new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+      </p>
+      {tags.length > 0 && (
+        <div class="tags">
+          {tags.map(tag => <span class="tag">{tag}</span>)}
+        </div>
+      )}
+    </header>
+    <div class="case-study-content">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .case-study {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+  
+  .case-study-header {
+    margin-bottom: 3rem;
+  }
+  
+  .case-study-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .meta {
+    color: var(--color-text);
+    font-size: 0.9rem;
+  }
+  
+  .tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .tag {
+    background: #e0e0e0;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+  
+  .case-study-content {
+    font-size: 1.1rem;
+  }
+</style>
