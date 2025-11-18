@@ -37,6 +37,8 @@
   document.addEventListener("astro:page-load", updateIcon);
 </script>
 
+
+
 <style>
   #theme-toggle {
     background: none;
@@ -65,5 +67,13 @@
 
   .hidden {
     display: none;
+  }
+
+  @media (max-width: 768px) {
+    .sun-icon,
+    .moon-icon {
+      width: 40px;
+      height: 40px;
+    }
   }
 </style>

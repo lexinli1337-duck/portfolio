@@ -42,7 +42,8 @@ const { title, description = "My Portfolio" } = Astro.props;
       --color-secondary: #FFB973;
       --color-bg2: #D7EEF8;
       --color-hover-bg: #e9fdfd;
-      --color-tag:#505050;
+      --color-tagtext:#505050;
+      --color-tagbg:#D7EEF8;
     }
 
     [data-theme="dark"] {
@@ -51,10 +52,11 @@ const { title, description = "My Portfolio" } = Astro.props;
       --color-text: #FFFFFF;
       --color-text-light: #FFFFFF;
       --color-primary: #51a5ff;
-      --color-secondary: #73C7FF;
+      --color-secondary: #82cbfc;
       --color-bg2: #0F1D2B;
       --color-hover-bg: #1f3852;
-      --color-tag:#2c2c2c;
+      --color-tagtext:#2c2c2c;
+      --color-tagbg:#D7EEF8;
     }
 
     * {
@@ -76,6 +78,26 @@ const { title, description = "My Portfolio" } = Astro.props;
       text-decoration: none;
     }
     
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* Apply animations to elements */
+    .animate-in {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .delay-100 { animation-delay: 0.1s; opacity: 0; }
+    .delay-200 { animation-delay: 0.2s; opacity: 0; }
+    .delay-300 { animation-delay: 0.3s; opacity: 0; }
+    .delay-400 { animation-delay: 0.4s; opacity: 0; }
+    .delay-500 { animation-delay: 0.5s; opacity: 0; }
     
   </style>
 </head>

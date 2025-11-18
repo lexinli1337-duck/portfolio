@@ -27,12 +27,12 @@ function getSlug(filePath: string) {
 <BaseLayout title="Work - Your Name" description="My portfolio of work">
   <section class="work">
     <div class="container">
-      <div class="textContainer">
-        <h1>My Work</h1>
+      <div class="textContainer animate-in">
+        <h1>Work</h1>
        
       </div>
       
-      <div class="case-studies-grid">
+      <div class="case-studies-grid animate-in">
         {sortedStudies.map((study) => (
           <CaseStudyCard
             title={study.frontmatter.title}
@@ -80,7 +80,7 @@ function getSlug(filePath: string) {
     width: 100%;
     max-width: 1000px;
     flex-direction: column;
-    gap: -1px;
+    gap: -1rem;
   }
 
   @media (max-width: 768px) {
