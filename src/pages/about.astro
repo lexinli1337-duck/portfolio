@@ -35,7 +35,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p>
             I'm always interested in hearing about new projects and opportunities.
           </p>
-          <a href="lexin.li1337@email.com" class="btn">Contact Me</a>
+          <div class="cta-buttons animate-in">
+            <a href="lexin.li1337@gmail.com" class="btn btn-primary">Contact me</a>
+          </div>
         </div>
       </div>
     </div>
@@ -90,18 +92,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     text-align: center;
   }
   
+  .contact {
+     display: flex;
+     flex-direction: column;
+  }
   .btn {
-    background: var(--color-primary);
     padding: 0.75rem 2rem;
     font-weight: 500;
     box-shadow: 8px 8px 0px var(--color-secondary);
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
   }
-
+  
   .btn:hover {
     transform: translateY(2px) translateX(2px);
     text-decoration: none;
     box-shadow: none
+  }
+  
+  .btn-primary {
+    background: var(--color-primary);
+    font-size: clamp(0.75rem, 4vw, 1.5rem);
+    color: white;
   }
   
 </style>
