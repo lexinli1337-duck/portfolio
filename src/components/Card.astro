@@ -21,7 +21,7 @@ const { title, description, slug, thumbnail, tags = [] } = Astro.props;
       <p>{description}</p>
       <div class="readMore">Read Case Study →</div>
     </div>
-  <a href={`/work/${slug}`}>
+  <a href={`/work/${slug}`} class="right-content">
     {thumbnail && (
       <div class="thumbnail">
         <img src={thumbnail} alt={title} />
@@ -89,6 +89,10 @@ const { title, description, slug, thumbnail, tags = [] } = Astro.props;
     max-width: 430px;
     padding: 1.5rem;
  ==
+  }
+
+  .right-content {
+    width: 100%;
   }
   
   .content h3 {
