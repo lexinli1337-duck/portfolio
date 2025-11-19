@@ -70,6 +70,7 @@ const { title, description = "My Portfolio" } = Astro.props;
       line-height: 1.6;
       color: var(--color-text);
       background-color: var(--color-bg);
+      padding: 0 5rem;
       overflow-y: scroll; /* Show scrollbars */
     }
     
@@ -99,6 +100,12 @@ const { title, description = "My Portfolio" } = Astro.props;
     .delay-400 { animation-delay: 0.4s; opacity: 0; }
     .delay-500 { animation-delay: 0.5s; opacity: 0; }
     
+
+    @media (max-width: 1000px) {
+      body {
+        padding: 0rem;
+      }
+    }
   </style>
 </head>
 <body>
